@@ -3,7 +3,6 @@ import { ref, computed } from 'vue'
 import TaskinputForm from './TaskinputForm.vue';
 import TaskList from './TaskList.vue';
 
-
 // 入力関連
 const tweets = ref([{ id: 0, description: 'hello'}])
 const postTweet = (description: string) => {
@@ -21,13 +20,6 @@ const title = ref<string>("Time-Task")
 <template>
 <h1>{{ title }}</h1>
 <div class="container">
-  <!-- <div class="tab-changer">
-    <button @click="updateTab(true)">Tab 1</button>
-    <button @click="updateTab(false)">Tab 2</button>
-  </div>
-  <div class="tab-contents">
-    <component :is="currentComponent"></component>
-  </div> -->
   <!-- 子コンポーネントでボタンが押されたり、テキストボックスの変更などが発生したときに親コンポーネントに伝える -->
   <TaskinputForm @post-tweet="postTweet"/>
   <div class="tweets-container">
