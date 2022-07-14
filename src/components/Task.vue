@@ -5,8 +5,8 @@ import TaskList from './TaskList.vue';
 
 // 入力関連
 const tweets = ref([{ id: 0, description: 'hello'}])
-const postTweet = (description: string ) => {
-  const tweet = { id: Math.random(), description }
+const postTweet = (description: string, date: number ) => {
+  const tweet = { id: Math.random(), description, date }
   tweets.value.push(tweet)
 }
 const deleteTweet = (id: number) => {
