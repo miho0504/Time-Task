@@ -1,9 +1,8 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { ref, computed } from 'vue'
 import Task from './components/Task.vue'
 import TaskTab from './components/TaskTab.vue'
+
 
 const isFirstTab = ref(true)
 const updateTab = (isFirst: boolean) => {
@@ -21,10 +20,13 @@ const currentComponent = computed(() =>{
   }
 })
 
+const title = ref<string>("Time-Task")
+
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
+  <h1>{{ title }}</h1>
   <div class="tab-changer">
     <button @click="updateTab(true)">Tab 1</button>
     <button @click="updateTab(false)">Tab 2</button>
@@ -32,7 +34,6 @@ const currentComponent = computed(() =>{
   <div class="tab-contents">
     <component :is="currentComponent"></component>
   </div>
-  <!-- <HelloWorld /> -->
 </template>
 
 <style>
