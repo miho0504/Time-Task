@@ -28,8 +28,6 @@ const postTweet = (e: Event) => {
 
 // バリテーション関連 computed 計算 
 const nameLengthLimit = 15
-const inputLengthLimit = 0
-
 const isValidName = computed(()=> {
     if (inputtingDescription.value.length >= nameLengthLimit ) {
       return false
@@ -37,18 +35,8 @@ const isValidName = computed(()=> {
       return true
     }
 })
-
-// const isValid = computed(()=> {
-//     if (inputtingDescription.value.length == inputLengthLimit &&
-//         inputtingDate.value == inputLengthLimit ) {
-//       return false
-//     } else {
-//       return true
-//     }
-// })
-
 const color = computed(() => {
-    return isValidName.value? 'white' : 'tomato'
+    return isValidName.value ? 'white' : 'tomato'
 })
 
 </script>
