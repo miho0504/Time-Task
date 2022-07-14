@@ -1,22 +1,40 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+import TaskinputForm from './TaskinputForm.vue';
+import TaskList from './TaskList.vue';
 
+const tweets = ref([{ id: 0, description: 'hello'}])
+const postTweet = (description: string ) => {
+  const tweet = { id: Math.random(), description }
+  tweets.value.push(tweet)
+}
+const deleteTweet = (id: number) => {
+  tweets.value = tweets.value.filter(t => t.id !== id)
+}
 
+const title = ref<string>("in a few days")
+const secondtitle = ref<string>("Have room to spare")
 
 </script>
 
 <template>
-     <div class="tweet-list-container">
-      <div class="tweet-list-innner">
-        <li v-for="tweet in tweets" :key="tweet.id" class="tweets-list">
-        <input type="checkbox" id="checkbox" v-model="checked" />
-        <label for="checkbox">{{ checked }}</label>
-      <span>{{ tweet.description }}</span>
-      <button @click="deleteTweet(tweet.id)" class="delete-button">delete</button>
-      <button @click="deleteTweet(tweet.id)" class="delete-button">Time</button>
-    </li>
-      </div>
-    </div>
+<div class="container">
+  <TaskinputForm @post-tweet="postTweet"/>
+  <h2>{{ title }}</h2>
+  <h2>{{ secondtitle }}</h2>
+  <div class="tweets-container">
+    <p v-if="tweets.length <= 0">complete！！！</p>
+    <ul>
+      <TaskList :tweets="tweets" :delete-tweet="deleteTweet"/>
+    </ul>
+  </div>
+</div>
 </template>
 
 <style scoped>
+
+.container {
+    width: 500px;
+    margin: auto;
+}
 </style>

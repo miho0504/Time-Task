@@ -28,8 +28,8 @@ const title = ref<string>("Time-Task")
   <img alt="Vue logo" src="./assets/logo.png" />
   <h1>{{ title }}</h1>
   <div class="tab-changer">
-    <button @click="updateTab(true)">Tab 1</button>
-    <button @click="updateTab(false)">Tab 2</button>
+    <button @click="updateTab(true)">today</button>
+    <button @click="updateTab(false)">end day</button>
   </div>
   <div class="tab-contents">
     <component :is="currentComponent"></component>

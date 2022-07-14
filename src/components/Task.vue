@@ -13,7 +13,6 @@ const deleteTweet = (id: number) => {
   tweets.value = tweets.value.filter(t => t.id !== id)
 }
 
-
 </script>
 
 <template>
@@ -21,7 +20,7 @@ const deleteTweet = (id: number) => {
   <!-- 子コンポーネントでボタンが押されたり、テキストボックスの変更などが発生したときに親コンポーネントに伝える -->
   <TaskinputForm @post-tweet="postTweet"/>
   <div class="tweets-container">
-    <p v-if="tweets.length <= 0">No tweets have been addded</p>
+    <p v-if="tweets.length <= 0">complete！！！</p>
     <ul>
       <TaskList :tweets="tweets" :delete-tweet="deleteTweet"/>
     </ul>

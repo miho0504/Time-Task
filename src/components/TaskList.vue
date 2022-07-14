@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { defineProps, } from 'vue';
+
+const today = new Date();
+
 type Tweet = {
     id: number,
     description: string,
@@ -18,9 +21,8 @@ defineProps<Props>()
     <div class="tweet-list-container">
       <div class="tweet-list-innner">
         <li v-for="tweet in tweets" :key="tweet.id" class="tweets-list">
-        <input type="checkbox" id="doneTweet" v-model="doneTweet" />
+        <input @click="deleteTweet(tweet.id)" type="checkbox" id="doneTweet" v-model="doneTweet" />
       <span>{{ tweet.description }}</span>
-      <button @click="deleteTweet(tweet.id)" class="delete-button">delete</button>
       <button @click="deleteTweet(tweet.id)" class="delete-button">Time</button>
     </li>
       </div>
