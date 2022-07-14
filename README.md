@@ -1,4 +1,4 @@
-自分用タスクアプリ
+# 自分用練習アプリ
 
 # Vue 3 + TypeScript + Vite
 
