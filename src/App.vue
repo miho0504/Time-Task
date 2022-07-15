@@ -3,7 +3,6 @@ import { ref, computed } from 'vue'
 import Task from './components/Task.vue'
 import TaskTab from './components/TaskTab.vue'
 
-
 const isFirstTab = ref(true)
 const updateTab = (isFirst: boolean) => {
   isFirstTab.value = isFirst
@@ -25,6 +24,7 @@ const title = ref<string>("Time-Task-Calendar")
 </script>
 
 <template>
+  <DatePicker v-model="date"></DatePicker>
   <img alt="logo" src="./assets/icon.png"/>
   <h1>{{ title }}</h1>
   <div class="tab-changer">

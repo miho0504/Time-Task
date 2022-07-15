@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue';
-import TaskTime from './TaskTime.vue'
+import TaskCalendar from './TaskCalendar.vue'
 
 const dialogIsvisible = ref(false)
 const today = new Date();
@@ -33,7 +33,7 @@ const toggleModal = () => {
       <div class="container">
         <button @click="toggleModal">Time</button>
       </div>
-      <TaskTime />
+      <TaskCalendar />
 
         <modal v-if="dialogIsVisible">
         <p>this is a test modal</p>
