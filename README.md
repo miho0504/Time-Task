@@ -1,4 +1,7 @@
 # 自分用練習アプリ
+# Simple task and calendar app
+# Task × timer
+# Task × calendar
 
 # Vue 3 + TypeScript + Vite
 
