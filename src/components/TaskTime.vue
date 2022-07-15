@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref, watch } from "vue"
 
-// 初期値作成
+// タイマー初期値作成
 const INITIAL_TIME = '00:00:00'
 const time = ref(INITIAL_TIME)
 
+// 秒数時間設定
 const HOUR_IN_SEC = 3600
 const MIN_IN_SEC = 60
 
@@ -56,15 +57,25 @@ const [h,m,s] = t.split(':').map(e => parseInt(e))
 <template>
     <div class="timer">
       <div class="time">
-        {{ formatTime }}
+         <input type="time" step="1" class="outline-none" v-model="time">
       </div>
-      <input type="time" step="1" class="outline-none" v-model="time">
-       <button v-if="!isTimerStopped" class="purple-btn" type="button" @click="stopTimer()">Stop</button>
-       <button v-else class="purple-btn" type="button" @click="startTimer()">Start</button>
+      <div class="time-button">
+      <button v-if="!isTimerStopped" class="purple-btn" type="button" @click="stopTimer()">Stop</button>
+      <button v-else class="purple-btn" type="button" @click="startTimer()">Start</button>
       <button class="purple-btn" type="button" @click="resetTimer()">Reset</button>
+      <button @click="deleteTweet(tweet.id)" type="checkbox" id="doneTweet">done</button>
+      </div>
      </div>
 </template>
 
 <style>
-
+.timer {
+    margin: auto;
+}
+.outline-none {
+    border: none;
+    width: 300px;
+    height: 80px;
+    font-size: 50px;
+}
 </style>

@@ -30,16 +30,15 @@ const toggleModal = () => {
         <li v-for="tweet in tweets" :key="tweet.id" class="tweets-list">
       <span>{{ tweet.description }}</span>
       <button @click="deleteTweet(tweet.id)" type="checkbox" id="doneTweet">done</button>
+      <div class="container">
+        <button @click="toggleModal">Time</button>
+      </div>
       <TaskTime />
 
         <modal v-if="dialogIsVisible">
         <p>this is a test modal</p>
         <button @click="toggleModal">close</button>
       </modal>
-
-      <div class="container">
-        <button @click="toggleModal">Time</button>
-      </div>
     </li>
       </div>
     </div>
