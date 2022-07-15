@@ -20,12 +20,12 @@ const currentComponent = computed(() =>{
   }
 })
 
-const title = ref<string>("Time-Task")
+const title = ref<string>("Time-Task-Calendar")
 
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <img alt="logo" src="./assets/icon.png"/>
   <h1>{{ title }}</h1>
   <div class="tab-changer">
     <button @click="updateTab(true)">today</button>
@@ -43,6 +43,25 @@ const title = ref<string>("Time-Task")
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+img {
+  width: 30%;
+  height: 30%;;
+}
+
+.tab-changer {
+  width: 100%;
+}
+
+.tab-changer button {
+  width: 280px;
+  height: 40px;
+  font-size: 20px;
+  background-color: white;
 }
 </style>

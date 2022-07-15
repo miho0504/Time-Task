@@ -12,7 +12,7 @@ const deleteTweet = (id: number) => {
   tweets.value = tweets.value.filter(t => t.id !== id)
 }
 
-const title = ref<string>("in a few days")
+const title = ref<string>("Tasks still due")
 const secondtitle = ref<string>("Have room to spare")
 
 </script>

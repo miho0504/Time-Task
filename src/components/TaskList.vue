@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue';
+import TaskTime from './TaskTime.vue'
 
 const dialogIsvisible = ref(false)
 const today = new Date();
@@ -27,8 +28,9 @@ const toggleModal = () => {
     <div class="tweet-list-container">
       <div class="tweet-list-innner">
         <li v-for="tweet in tweets" :key="tweet.id" class="tweets-list">
-        <input @click="deleteTweet(tweet.id)" type="checkbox" id="doneTweet" v-model="doneTweet" />
       <span>{{ tweet.description }}</span>
+      <button @click="deleteTweet(tweet.id)" type="checkbox" id="doneTweet">done</button>
+      <TaskTime />
 
         <modal v-if="dialogIsVisible">
         <p>this is a test modal</p>
@@ -72,7 +74,6 @@ li {
     margin: 30px;
     height: 50px;
     font-size: 25px;
-        background-color: aquamarine;
 }
 
 /* モーダル */
