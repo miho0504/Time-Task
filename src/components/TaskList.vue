@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue';
-import TaskCalendar from './TaskCalendar.vue'
-
+import TaskTime from './TaskTime.vue';
+import Modal from './Modal.vue';
+  
 const dialogIsvisible = ref(false)
 const today = new Date();
 
@@ -12,11 +13,11 @@ type Tweet = {
 type Props = {
     tweets: Tweet[]
     deleteTweet: (id: number) => void
+    
 }
 
 defineProps<Props>()
 
-// モーダル
 // モーダル ボタンを押すとdialogIsvisibleが変更される
 const toggleModal = () => {
   dialogIsvisible.value = !dialogIsvisible.value
@@ -30,18 +31,13 @@ const toggleModal = () => {
         <li v-for="tweet in tweets" :key="tweet.id" class="tweets-list">
       <span>{{ tweet.description }}</span>
       <button @click="deleteTweet(tweet.id)" type="checkbox" id="doneTweet">done</button>
-      <div class="container">
-        <button @click="toggleModal">Time</button>
-      </div>
-      <TaskCalendar />
-
-        <modal v-if="dialogIsVisible">
-        <p>this is a test modal</p>
-        <button @click="toggleModal">close</button>
-      </modal>
+      <button @click="toggleModal">Time</button>
     </li>
       </div>
     </div>
+
+      <Modal v-if="dialogIsvisible">
+      </Modal>
 </template>
 
 <style scoped>
@@ -75,28 +71,13 @@ li {
     font-size: 25px;
 }
 
-/* モーダル */
+/* .modal-container {
+  border: solid 3px #000000;
+} */
 
 .modal-enter-from {
   opacity: 0;
   transition: translate(0);
 }
 
-.modal-enter-active {
-  animation: modal 0.3s ease-out; 
-}
-
-/* アニメーション */
-@keyframes modal {
-    from {
-       opacity: 0;
-       transform: translateY(-50px) scale(0.9); 
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1); 
-
-    }
-}
 </style>

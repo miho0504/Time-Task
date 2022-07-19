@@ -34,6 +34,7 @@ const title = ref<string>("Time-Task-Calendar")
   <div class="tab-contents">
     <component :is="currentComponent"></component>
   </div>
+  <TaskCalendar />
 </template>
 
 <style>
