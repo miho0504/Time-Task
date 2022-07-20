@@ -18,6 +18,7 @@ onMounted(async () => {
   const data = await axios.get('https://my-task-fabeb-default-rtdb.firebaseio.com/tasklist.json')
 })
 
+// データ送る
 const postTweet = (e: Event) => {
       axios.post('https://my-task-fabeb-default-rtdb.firebaseio.com/tasklist.json',{
       description: inputtingDescription.value,
@@ -45,6 +46,7 @@ const color = computed(() => {
 
 <template>
 <div class="form-container">
+  <p>{{ date }}</p>
   <div class="form-input">
     <input class="input-name" v-model="inputtingDescription">
     <button :disabled="!isValidName" class="save-button" @click="postTweet">post</button>

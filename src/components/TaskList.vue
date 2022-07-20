@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue';
+import { defineProps, ref,onMounted } from 'vue';
 import TaskTime from './TaskTime.vue';
 import Modal from './Modal.vue';
+
+const date = ref();
   
 const dialogIsvisible = ref(false)
+const calendarIsvisible = ref(false)
 const today = new Date();
+
 
 type Tweet = {
     id: number,
@@ -13,7 +17,6 @@ type Tweet = {
 type Props = {
     tweets: Tweet[]
     deleteTweet: (id: number) => void
-    
 }
 
 defineProps<Props>()
@@ -28,7 +31,7 @@ const toggleModal = () => {
 <template>
     <div class="tweet-list-container">
       <div class="tweet-list-innner">
-        <li v-for="tweet in tweets" :key="tweet.id" class="tweets-list">
+      <li v-for="tweet in tweets" :key="tweet.id" class="tweets-list">
       <span>{{ tweet.description }}</span>
       <button @click="deleteTweet(tweet.id)" type="checkbox" id="doneTweet">done</button>
       <button @click="toggleModal">Time</button>
@@ -36,8 +39,10 @@ const toggleModal = () => {
       </div>
     </div>
 
-      <Modal v-if="dialogIsvisible">
-      </Modal>
+      <Modal v-if="dialogIsvisible"></Modal>
+      <div class="calendar-button">
+        <button @click="calendarModal">か</button>
+      </div>
 </template>
 
 <style scoped>

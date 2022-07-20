@@ -1,32 +1,16 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue';
 import TaskTime from './TaskTime.vue';
-
-const dialogIsvisible = ref(false)
-
-const toggleModal = () => {
-  dialogIsvisible.value = !dialogIsvisible.value
-}
-
-
 </script>
 
 <template>
-      <!-- <dialog open v-if="open" class="dialog"> -->
-      <div class="dialog">
-      <TaskTime />
-      </div>
-       <slot></slot>
-      <!-- </dialog> -->
-  <div class="backdrop">
-      <!-- ボックス内容 -->
-  </div>
+  <div class="dialog"><TaskTime /></div>
+  <div class="backdrop"></div>
 </template>  
 
 
 <style scoped>
 
-/* モーダル */
 /* 後ろの黒い背景 */
 .backdrop {
     position: fixed;
@@ -55,7 +39,6 @@ const toggleModal = () => {
 }
 
 /* モーダル */
-
 .modal-enter-active {
   animation: modal 0.3s ease-out; 
 }

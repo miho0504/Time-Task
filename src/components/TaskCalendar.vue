@@ -1,15 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import 'v-calendar/dist/style.css';
-import { Calendar, DatePicker } from 'v-calendar';
+import { reactive }from 'vue';
+import '@fullcalendar/core/vdom'
+import FullCalendar from '@fullcalendar/vue3';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
 
-const date = ref<number>()
-const inputEvent = ref<string>("")
+const options = reactive({
+  plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
+  initialView: 'dayGridMonth'
+})
 
 </script>
 
 <template>
-  <DatePicker class="calendar" @input="inputEvent" v-model="date"></DatePicker>
+<FullCalendar v-bind:options='options' />
 </template>
 
 <style>

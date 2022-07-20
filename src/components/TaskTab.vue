@@ -13,7 +13,6 @@ const deleteTweet = (id: number) => {
 }
 
 const title = ref<string>("Tasks still due")
-const secondtitle = ref<string>("Have room to spare")
 
 </script>
 
@@ -21,7 +20,6 @@ const secondtitle = ref<string>("Have room to spare")
 <div class="container">
   <TaskinputForm @post-tweet="postTweet"/>
   <h2>{{ title }}</h2>
-  <h2>{{ secondtitle }}</h2>
   <div class="tweets-container">
     <p v-if="tweets.length <= 0">complete！！！</p>
     <ul>

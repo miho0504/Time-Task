@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import Task from './components/Task.vue'
 import TaskTab from './components/TaskTab.vue'
+import TaskCalendar from './components/TaskCalendar.vue'
 
 const isFirstTab = ref(true)
 const updateTab = (isFirst: boolean) => {
@@ -24,6 +25,7 @@ const title = ref<string>("Time-Task-Calendar")
 </script>
 
 <template>
+<TaskCalendar />
   <DatePicker v-model="date"></DatePicker>
   <img alt="logo" src="./assets/icon.png"/>
   <h1>{{ title }}</h1>
@@ -34,7 +36,6 @@ const title = ref<string>("Time-Task-Calendar")
   <div class="tab-contents">
     <component :is="currentComponent"></component>
   </div>
-  <TaskCalendar />
 </template>
 
 <style>
@@ -64,5 +65,20 @@ img {
   height: 40px;
   font-size: 20px;
   background-color: white;
+}
+
+.calendar-button {
+  z-index: 999;
+  /* position: fixed; */
+  margin-left: auto;
+  width: 500px;
+}
+
+.calendar-button button{
+  border-radius: 50px;
+  height: 70px;
+  width: 70px;
+  background-color: #FFF;
+  margin-right: auto;
 }
 </style>
